@@ -1,10 +1,6 @@
 import { CardComponent } from "./components/card";
+import HeroSection from "./components/hero-section";
 
 export default function Home() {
-  return (
-    <div>
-      <div>Ecommerce</div>
-      <CardComponent />
-    </div>
-  );
+  return <HeroSection />;
 }
