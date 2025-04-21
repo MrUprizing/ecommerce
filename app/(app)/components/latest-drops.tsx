@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 
 export default function LatestDrops() {
   const products = [
