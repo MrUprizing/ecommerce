@@ -6,15 +6,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  BoltIcon,
-  BookOpenIcon,
-  ChevronDownIcon,
-  Layers2Icon,
-  LogOutIcon,
-  Moon,
-  Sun,
-} from "lucide-react";
+import { Moon, Sun, Airplay } from "lucide-react";
 import { useTheme } from "next-themes";
 import * as React from "react";
 
@@ -49,7 +41,7 @@ export function ModeMenu() {
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Sun size={16} className="mr-2" />
+          <Airplay size={16} className="mr-2" />
           System
         </DropdownMenuItem>
       </DropdownMenuSubContent>
