@@ -120,6 +120,9 @@
     @apply bg-background text-foreground;
   }
   ::selection {
-    @apply dark:bg-sky-950 dark:text-sky-300 bg-sky-300 text-sky-900;
+    @apply bg-sky-300 text-sky-950;
+  }
+  .dark ::selection {
+    @apply bg-sky-950 text-sky-300;
   }
 }
