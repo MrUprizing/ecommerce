@@ -29,7 +29,7 @@ export default async function Page({
           description={product.metadata.description}
           information={product.metadata.information}
         />
-        <ProductCenter image={product.image} />
+        <ProductCenter image={product.image} id={product.id} />
         <ProductRight price={product.price} colors={product.metadata.colors} />
       </div>
       <Features />

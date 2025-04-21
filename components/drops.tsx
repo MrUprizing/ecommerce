@@ -42,6 +42,7 @@ export default function Drops({ products, hero, title }: LatestDropsProps) {
                   alt={product.name}
                   fill
                   className="object-contain"
+                  style={{ viewTransitionName: `product-${product.id}` }}
                 />
               </div>
             </Link>

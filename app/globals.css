@@ -125,4 +125,7 @@
   .dark ::selection {
     @apply bg-sky-700/50 text-sky-300;
   }
+  .demo {
+    view-transition-name: demo-title;
+  }
 }
