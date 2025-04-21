@@ -24,16 +24,11 @@ export default function UserOptions() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="cursor-pointer">
+        <Button variant="ghost" size="icon" className="cursor-pointer">
           <Avatar>
             <AvatarImage src="./avatar.jpeg" alt="Profile image" />
             <AvatarFallback>Mr</AvatarFallback>
           </Avatar>
-          <ChevronDownIcon
-            size={16}
-            className="opacity-60"
-            aria-hidden="true"
-          />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="max-w-64">

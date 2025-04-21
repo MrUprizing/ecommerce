@@ -5,6 +5,7 @@ import { TextEffect } from "@/components/ui/text-effect";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import LatestDrops from "./components/latest-drops";
 
 const transitionVariants = {
   item: {
@@ -48,7 +49,7 @@ export default function HeroSection() {
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
                     <span className="text-foreground text-sm">
-                      Introducing Support for AI Models
+                      Introducing Ecommerce minimal
                     </span>
                     <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
                       <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
@@ -69,7 +70,7 @@ export default function HeroSection() {
                   as="h1"
                   className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]"
                 >
-                  Modern Solutions for Customer Engagement
+                  Beautifully designed ecommerce platform
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -79,8 +80,8 @@ export default function HeroSection() {
                   as="p"
                   className="mx-auto mt-8 max-w-2xl text-balance text-lg"
                 >
-                  Highly customizable components for building modern websites
-                  and applications that look and feel the way you mean it.
+                  Highly customizable for building modern ecommerce websites
+                  that look and feel the way you mean it.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -99,7 +100,7 @@ export default function HeroSection() {
                 >
                   <Button asChild size="lg" className="px-5 text-base">
                     <Link href="#link">
-                      <span className="text-nowrap">Start Building</span>
+                      <span className="text-nowrap">View Products</span>
                     </Link>
                   </Button>
 
@@ -111,7 +112,7 @@ export default function HeroSection() {
                     className="h-10.5 px-5"
                   >
                     <Link href="#link">
-                      <span className="text-nowrap">Request a demo</span>
+                      <span className="text-nowrap">Car Shoping</span>
                     </Link>
                   </Button>
                 </AnimatedGroup>
@@ -210,6 +211,7 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
+      <LatestDrops />
       <ModeToggle />
     </>
   );

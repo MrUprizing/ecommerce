@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Link } from "next-view-transitions";
-import UserOptions from "./user-options";
 import Search from "./search";
+import UserOptions from "./user-options";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -50,10 +50,10 @@ export default function Navbar() {
           ))}
         </div>
         <div className="hidden md:flex justify-center items-center space-x-2">
+          <Search />
           <Button asChild>
             <Link href="/login">Get Started</Link>
           </Button>
-          <Search />
           <UserOptions />
         </div>
         <div className="md:hidden">

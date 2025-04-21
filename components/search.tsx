@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
   ArrowUpRightIcon,
   CircleFadingPlusIcon,
@@ -8,6 +7,7 @@ import {
   FolderPlusIcon,
   SearchIcon,
 } from "lucide-react";
+import * as React from "react";
 
 import {
   CommandDialog,
@@ -38,7 +38,8 @@ export default function Search() {
   return (
     <>
       <button
-        className="border-input bg-background text-foreground placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/50 inline-flex h-9 w-fit rounded-md border px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px]"
+        type="button"
+        className="border-input bg-background text-foreground placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/50 inline-flex h-9 w-fit rounded-md border px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] cursor-pointer"
         onClick={() => setOpen(true)}
       >
         <span className="flex grow items-center">
