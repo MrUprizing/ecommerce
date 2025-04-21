@@ -1,13 +1,12 @@
+import Drops from "@/components/drops";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { TextEffect } from "@/components/ui/text-effect";
+import { products } from "@/data/products";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import LatestDrops from "./components/latest-drops";
-import Drops from "@/components/drops";
-import { products } from "@/data/products";
 
 const transitionVariants = {
   item: {
