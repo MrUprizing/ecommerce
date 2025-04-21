@@ -37,13 +37,16 @@ export default function Drops({ products, hero, title }: LatestDropsProps) {
           <div key={product.id} className="rounded-lg overflow-hidden">
             <Link prefetch={true} href={`/product/${product.id}`}>
               <div className="bg-card border rounded-lg aspect-square relative hover:dark:border-white/30 hover:border-black/20 hover:shadow-lg transition-all  duration-300">
-                <Image
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  fill
-                  className="object-contain"
-                  style={{ viewTransitionName: `product-${product.id}` }}
-                />
+                <div className="aspect-square relative">
+                  <Image
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    fill
+                    className="object-contain"
+                    style={{ viewTransitionName: `product-${product.id}` }}
+                    priority
+                  />
+                </div>
               </div>
             </Link>
             <div className="flex justify-between items-center py-3 px-1.5">
