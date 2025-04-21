@@ -6,6 +6,8 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import LatestDrops from "./components/latest-drops";
+import Drops from "@/components/drops";
+import { products } from "@/data/products";
 
 const transitionVariants = {
   item: {
@@ -211,7 +213,7 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
-      <LatestDrops />
+      <Drops title="Latest Drops" hero={1} products={products} key={1} />
       <ModeToggle />
     </>
   );
