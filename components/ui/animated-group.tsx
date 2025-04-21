@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode, ElementType } from "react";
+import { type Variants, motion } from "framer-motion";
+import type { ElementType, ReactNode } from "react";
 import React from "react";
 
 interface AnimatedGroupProps {
@@ -123,8 +123,12 @@ function AnimatedGroup({
       {...(className ? { className } : {})}
     >
       {React.Children.map(children, (child, i) => (
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        <Item key={(child as any)?.key ?? i} variants={itemVariants}>
+        <Item
+          key={
+            React.isValidElement(child) && child.key !== null ? child.key : i
+          }
+          variants={itemVariants}
+        >
           {child}
         </Item>
       ))}
