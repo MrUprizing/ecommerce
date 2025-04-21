@@ -35,7 +35,7 @@ export default function Drops({ products, hero, title }: LatestDropsProps) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filteredProducts.map((product) => (
           <div key={product.id} className="rounded-lg overflow-hidden">
-            <Link href={`/product/${product.id}`}>
+            <Link prefetch={true} href={`/product/${product.id}`}>
               <div className="bg-card border rounded-lg aspect-square relative hover:dark:border-white/30 hover:border-black/20 hover:shadow-lg transition-all  duration-300">
                 <Image
                   src={product.image || "/placeholder.svg"}

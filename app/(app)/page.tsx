@@ -213,6 +213,8 @@ export default function HeroSection() {
         </section>
       </div>
       <Drops title="Latest Drops" hero={1} products={products} key={1} />
+      <Drops title="Weekly Picks" hero={2} products={products} key={2} />
+      <Drops title="Sale" hero={3} products={products} key={3} />
       <ModeToggle />
     </>
   );
