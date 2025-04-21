@@ -47,7 +47,7 @@ export default function Drops({ products, hero, title }: LatestDropsProps) {
             </Link>
             <div className="flex justify-between items-center py-3 px-1.5">
               <h3 className="font-medium">{product.name}</h3>
-              <p className="text-base text-gray-500">
+              <p className="text-base text-muted-foreground">
                 ${product.price.toFixed(2)}
               </p>
             </div>
