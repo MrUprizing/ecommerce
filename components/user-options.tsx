@@ -1,13 +1,3 @@
-import {
-  BoltIcon,
-  BookOpenIcon,
-  ChevronDownIcon,
-  Layers2Icon,
-  LogOutIcon,
-  PinIcon,
-  UserPenIcon,
-} from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +7,23 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ModeMenu } from "@/components/ui/mode-toggle";
+import {
+  BoltIcon,
+  BookOpenIcon,
+  ChevronDownIcon,
+  Layers2Icon,
+  LogOutIcon,
+  Moon,
+  PinIcon,
+  Sun,
+  UserPenIcon,
+} from "lucide-react";
 
 export default function UserOptions() {
   return (
@@ -31,7 +36,7 @@ export default function UserOptions() {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="max-w-64">
+      <DropdownMenuContent className="max-w-64" align="end">
         <DropdownMenuLabel className="flex min-w-0 flex-col">
           <span className="text-foreground truncate text-sm font-medium">
             Nicolas Vargas
@@ -66,6 +71,8 @@ export default function UserOptions() {
             <span>Option 5</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <ModeMenu />
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <LogOutIcon size={16} className="opacity-60" aria-hidden="true" />
