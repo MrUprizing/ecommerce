@@ -1,9 +1,22 @@
 "use client";
-import { type Variants, motion } from "motion/react";
-import type { ReactNode } from "react";
+
+import { motion, type Variants } from "framer-motion";
+import type { ReactNode, ElementType } from "react";
 import React from "react";
 
-export type PresetType =
+interface AnimatedGroupProps {
+  children: ReactNode;
+  className?: string;
+  variants?: {
+    container?: Variants;
+    item?: Variants;
+  };
+  preset?: PresetType;
+  as?: ElementType;
+  asChild?: ElementType;
+}
+
+type PresetType =
   | "fade"
   | "slide"
   | "scale"
@@ -15,24 +28,9 @@ export type PresetType =
   | "rotate"
   | "swing";
 
-export type AnimatedGroupProps = {
-  children: ReactNode;
-  className?: string;
-  variants?: {
-    container?: Variants;
-    item?: Variants;
-  };
-  preset?: PresetType;
-  as?: React.ElementType;
-  asChild?: React.ElementType;
-};
-
+// --- Static Content ---
 const defaultContainerVariants: Variants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const defaultItemVariants: Variants = {
@@ -42,18 +40,9 @@ const defaultItemVariants: Variants = {
 
 const presetVariants: Record<PresetType, Variants> = {
   fade: {},
-  slide: {
-    hidden: { y: 20 },
-    visible: { y: 0 },
-  },
-  scale: {
-    hidden: { scale: 0.8 },
-    visible: { scale: 1 },
-  },
-  blur: {
-    hidden: { filter: "blur(4px)" },
-    visible: { filter: "blur(0px)" },
-  },
+  slide: { hidden: { y: 20 }, visible: { y: 0 } },
+  scale: { hidden: { scale: 0.8 }, visible: { scale: 1 } },
+  blur: { hidden: { filter: "blur(4px)" }, visible: { filter: "blur(0px)" } },
   "blur-slide": {
     hidden: { filter: "blur(4px)", y: 20 },
     visible: { filter: "blur(0px)", y: 0 },
@@ -95,11 +84,15 @@ const presetVariants: Record<PresetType, Variants> = {
   },
 };
 
-const addDefaultVariants = (variants: Variants) => ({
-  hidden: { ...defaultItemVariants.hidden, ...variants.hidden },
-  visible: { ...defaultItemVariants.visible, ...variants.visible },
-});
+// --- Helpers ---
+function mergeVariants(base: Variants, override?: Variants): Variants {
+  return {
+    hidden: { ...base.hidden, ...(override?.hidden ?? {}) },
+    visible: { ...base.visible, ...(override?.visible ?? {}) },
+  };
+}
 
+// --- Component ---
 function AnimatedGroup({
   children,
   className,
@@ -108,42 +101,34 @@ function AnimatedGroup({
   as = "div",
   asChild = "div",
 }: AnimatedGroupProps) {
-  const selectedVariants = {
-    item: addDefaultVariants(preset ? presetVariants[preset] : {}),
-    container: addDefaultVariants(defaultContainerVariants),
-  };
-  const containerVariants = variants?.container || selectedVariants.container;
-  const itemVariants = variants?.item || selectedVariants.item;
+  const Container = React.useMemo(() => motion.create(as), [as]);
+  const Item = React.useMemo(() => motion.create(asChild), [asChild]);
 
-  // Only allow string or React component for as/asChild
-  const MotionComponent = React.useMemo(
-    () => motion(as as React.ElementType),
-    [as],
-  );
-  const MotionChild = React.useMemo(
-    () => motion(asChild as React.ElementType),
-    [asChild],
-  );
+  const containerVariants = variants?.container
+    ? mergeVariants(defaultContainerVariants, variants.container)
+    : defaultContainerVariants;
+
+  const itemVariants = variants?.item
+    ? mergeVariants(defaultItemVariants, variants.item)
+    : mergeVariants(
+        defaultItemVariants,
+        preset ? presetVariants[preset] : undefined,
+      );
 
   return (
-    <MotionComponent
+    <Container
       initial="hidden"
       animate="visible"
       variants={containerVariants}
       {...(className ? { className } : {})}
     >
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.key != null) {
-          return (
-            <MotionChild key={child.key} variants={itemVariants}>
-              {child}
-            </MotionChild>
-          );
-        }
-
-        return <MotionChild variants={itemVariants}>{child}</MotionChild>;
-      })}
-    </MotionComponent>
+      {React.Children.map(children, (child, i) => (
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        <Item key={(child as any)?.key ?? i} variants={itemVariants}>
+          {child}
+        </Item>
+      ))}
+    </Container>
   );
 }
 

@@ -9,8 +9,7 @@ export default function ProductCenter({ image, id }: ProductCenterProps) {
       <Image
         src={image}
         alt="Audio Arrogance AuralElite Headphones"
-        width={1000}
-        height={1000}
+        fill
         className="object-contain w-full h-full"
         priority
         style={{ viewTransitionName: `product-${id}` }}
