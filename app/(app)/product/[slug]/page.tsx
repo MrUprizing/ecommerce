@@ -2,20 +2,21 @@ import { products } from "@/data/products";
 import type { Product } from "@/types/product";
 import { notFound, redirect } from "next/navigation";
 import ProductCenter from "./components/center";
+import Features from "./components/features";
 import { ProductLeft } from "./components/left";
 import ProductRight from "./components/right";
-
-interface PageProps {
-  params: { slug: string };
-}
 
 function getProductById(id: string): Product | undefined {
   const productId = Number(id);
   return products.find((product) => product.id === productId);
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const product = getProductById(slug);
   if (!product) {
     notFound();
@@ -31,6 +32,7 @@ export default async function Page({ params }: PageProps) {
         <ProductCenter image={product.image} />
         <ProductRight price={product.price} colors={product.metadata.colors} />
       </div>
+      <Features />
     </div>
   );
 }
