@@ -17,9 +17,9 @@ import UserOptions from "./user-options";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -52,7 +52,7 @@ export default function Navbar() {
         <div className="hidden md:flex justify-center items-center space-x-2">
           <Search />
           <Button asChild>
-            <Link href="/login">Get Started</Link>
+            <Link href="#login">Get Started</Link>
           </Button>
           <UserOptions />
         </div>
