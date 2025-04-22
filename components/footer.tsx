@@ -189,7 +189,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="bg-muted mt-16 flex items-center justify-between rounded-md p-4 px-6 py-3">
-          <span className="text-title">&copy; tailus 2021 - Present</span>
+          <span className="text-title">&copy; uprizing 2025 - Present</span>
           <Link
             href="#"
             className="text-muted-foreground hover:text-primary text-sm"

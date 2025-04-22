@@ -116,15 +116,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   ::selection {
     @apply bg-sky-500/50 text-sky-950;
   }
+
   .dark ::selection {
     @apply bg-sky-700/50 text-sky-300;
   }
+
   .demo {
     view-transition-name: demo-title;
   }
