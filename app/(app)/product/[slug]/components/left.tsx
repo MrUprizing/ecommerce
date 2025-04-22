@@ -32,20 +32,20 @@ export function ProductLeft({
           </AccordionTrigger>
           <AccordionContent>
             <ul className="space-y-1">
-              <li>
-                <span className="font-medium">Material:</span>{" "}
+              <li className="text-muted-foreground">
+                <span className="text-primary">Material:</span>{" "}
                 {information.material}
               </li>
-              <li>
-                <span className="font-medium">Weight:</span>{" "}
+              <li className="text-muted-foreground">
+                <span className="text-primary">Weight:</span>{" "}
                 {information.weight}
               </li>
-              <li>
-                <span className="font-medium">Country of Origin:</span>{" "}
+              <li className="text-muted-foreground">
+                <span className="text-primary">Country of Origin:</span>{" "}
                 {information.countryOfOrigin}
               </li>
-              <li>
-                <span className="font-medium">Dimensions:</span>{" "}
+              <li className="text-muted-foreground">
+                <span className="text-primary">Dimensions:</span>{" "}
                 {information.dimensions}
               </li>
             </ul>
