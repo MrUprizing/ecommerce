@@ -3,7 +3,7 @@ import * as React from "react";
 import { products } from "@/data/products";
 import type { Product } from "@/types/product";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 interface FilterOption {
   label: string;
