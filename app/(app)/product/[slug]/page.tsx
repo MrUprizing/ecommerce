@@ -2,7 +2,7 @@ import { products } from "@/data/products";
 import type { Product } from "@/types/product";
 import { notFound, redirect } from "next/navigation";
 import ProductCenter from "./components/center";
-import Features from "./components/features";
+import FAQs from "./components/faqs";
 import { ProductLeft } from "./components/left";
 import ProductRight from "./components/right";
 
@@ -32,7 +32,7 @@ export default async function Page({
         <ProductCenter image={product.image} id={product.id} />
         <ProductRight price={product.price} colors={product.metadata.colors} />
       </div>
-      <Features />
+      <FAQs />
     </div>
   );
 }
