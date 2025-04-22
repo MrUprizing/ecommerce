@@ -10,14 +10,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Github, Menu } from "lucide-react";
 import { Link } from "next-view-transitions";
 import Search from "./search";
 import UserOptions from "./user-options";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#about", label: "About" },
+  { href: "/store", label: "Store" },
   { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];
@@ -51,8 +51,10 @@ export default function Navbar() {
         </div>
         <div className="hidden md:flex justify-center items-center space-x-2">
           <Search />
-          <Button asChild>
-            <Link href="#login">Get Started</Link>
+          <Button asChild variant="outline" size="icon">
+            <Link href="https://github.com/MrUprizing/ecommerce">
+              <Github />
+            </Link>
           </Button>
           <UserOptions />
         </div>

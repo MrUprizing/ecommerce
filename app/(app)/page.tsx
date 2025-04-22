@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/ui/text-effect";
 import { products } from "@/data/products";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import React from "react";
 
 const transitionVariants = {
@@ -99,7 +99,7 @@ export default function HeroSection() {
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
                 >
                   <Button asChild size="lg" className="px-5 text-base">
-                    <Link href="#link">
+                    <Link href="#products">
                       <span className="text-nowrap">View Products</span>
                     </Link>
                   </Button>
@@ -111,8 +111,8 @@ export default function HeroSection() {
                     variant="ghost"
                     className="h-10.5 px-5"
                   >
-                    <Link href="#link">
-                      <span className="text-nowrap">Car Shoping</span>
+                    <Link href="/store">
+                      <span className="text-nowrap">All products</span>
                     </Link>
                   </Button>
                 </AnimatedGroup>
@@ -198,7 +198,7 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className="flex">
+              <div id="products" className="flex">
                 <img
                   className="mx-auto h-6 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/openai.svg"
