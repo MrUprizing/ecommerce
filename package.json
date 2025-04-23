@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build --turbo",
+    "start": "bun run .next/standalone/server.js",
     "lint": "biome check .",
     "lint:fix": "biome check --write ."
   },
