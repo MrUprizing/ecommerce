@@ -52,8 +52,15 @@ export default function Navbar() {
         <div className="hidden md:flex justify-center items-center space-x-2">
           <Search />
           <Button asChild variant="outline" size="icon">
-            <Link href="https://github.com/MrUprizing/ecommerce">
-              <Github />
+            <Link
+              href="https://github.com/MrUprizing/ecommerce"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit the Ecommerce project on GitHub"
+              title="Visit the Ecommerce project on GitHub"
+            >
+              <Github aria-hidden="true" focusable="false" />
+              <span className="sr-only">Ecommerce GitHub Repository</span>
             </Link>
           </Button>
           <UserOptions />
