@@ -25,7 +25,7 @@ export default function Drops({ products, hero, title }: LatestDropsProps) {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-medium">{title}</h2>
         <Link
-          href="/products"
+          href="/store"
           className="text-blue-600 hover:text-blue-800 flex items-center gap-1 text-sm"
         >
           View all <ArrowUpRight className="h-4 w-4" />

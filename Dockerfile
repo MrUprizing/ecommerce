@@ -9,7 +9,6 @@ RUN bun install --frozen-lockfile
 # Stage 2: Build the application
 FROM base AS builder
 WORKDIR /build
-ENV NODE_ENV=production
 COPY --from=deps /build/node_modules ./node_modules
 COPY . .
 RUN bun run build
