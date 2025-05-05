@@ -1,14 +1,34 @@
 import { products } from "@/data/products";
 import type { Product } from "@/types/product";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import ProductCenter from "./components/center";
 import FAQs from "./components/faqs";
 import { ProductLeft } from "./components/left";
 import ProductRight from "./components/right";
+import type { Metadata } from "next";
 
 function getProductById(id: string): Product | undefined {
   const productId = Number(id);
   return products.find((product) => product.id === productId);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductById(slug);
+  if (!product) {
+    return {
+      title: "Product Not Found",
+      description: "The requested product does not exist.",
+    };
+  }
+  return {
+    title: product.name,
+    description: product.metadata.description,
+  };
 }
 
 export default async function Page({
