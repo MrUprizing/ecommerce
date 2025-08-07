@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: "standalone",
+  assetPrefix: "https://d33t7jyq4a53gj.cloudfront.net",
 };
 
 export default nextConfig;
